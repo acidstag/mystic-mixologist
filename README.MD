@@ -1,9 +1,11 @@
-Symphonic Sage
+Mystic Mixologist
 
-Harmonizing Mysticism, Music, and Location. Dive into tarot insights, uncover nearby concerts with Bandsintown, all curated to your location through Geolocation API. Let the symphony of fate guide your journey to unforgettable musical experiences.
+"Unlock the spirits within; pull a card, reveal a drink, and let the magic begin!"
 
-APIs to be used:
+Crafting Cocktails with Tarot Inspiration. Imbibe the Mystical, Discover the Spirit of Libations, and Let Fate Guide Your Gastronomic Adventure.
 
-- Tarot API: https://tarotapi.dev/
-- Bandsintown Public API: https://publicapis.io/bandsintown-api / https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0
-- Geolocation API: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API
+APIs to be Used:
+
+Tarot API: https://tarotapi.dev/
+Tarot Images: https://sacred-texts.com/tarot/index.htm
+Cocktail Database API: https://www.thecocktaildb.com/api/json/v1/1/random.php
