@@ -45,18 +45,22 @@ async function fetchCocktail() {
 
             const name = document.createElement('h3')
             name.textContent = 'Name: ' + cocktail.strDrink
+            name.classList.add('name')
             cocktailDiv.append(name)
             
             const glass = document.createElement('p')
             glass.textContent = 'Glass: ' + cocktail.strGlass
+            glass.classList.add('glass')
             cocktailDiv.append(glass)
 
             const instructions = document.createElement('p')
             instructions.textContent = 'Instructions: ' + cocktail.strInstructions
+            instructions.classList.add('instructions')
             cocktailDiv.append(instructions)
 
             const ingredientsHeader = document.createElement("p")
             ingredientsHeader.textContent = "Ingredients: "
+            ingredientsHeader.classList.add('ingredients-header')
             cocktailDiv.append(ingredientsHeader)
 
             const ingredientsList = document.createElement('ul')
@@ -66,9 +70,11 @@ async function fetchCocktail() {
             if (ingredient && measure) {
                 const listItem = document.createElement('li')
                 listItem.textContent = `${measure.trim()}: ${ingredient}`
+                ingredientsList.classList.add('ingredients-list')
                 ingredientsList.append(listItem)
             } else if (ingredient) {
                 const listItem = document.createElement('li')
+                ingredientsList.classList.add('ingredients-list')
                 listItem.textContent = ingredient
                 ingredientsList.append(listItem)
             }
@@ -112,7 +118,7 @@ form.addEventListener('submit', async function(e) {
     document.querySelector('#interpretation').textContent = tarotCardInterpretation(drawCard)
 
     const showCocktailButton = document.createElement('button')
-    showCocktailButton.textContent = 'Unveil your libation destiny!'
+    showCocktailButton.textContent = '...reveil your libation destiny!'
     showCocktailButton.addEventListener('click', async function() {
         const cocktails = await fetchCocktail()
         cocktailDisplay(cocktails)

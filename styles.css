@@ -1,0 +1,55 @@
+body, h1, form, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #6ed5bb;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    z-index: 2
+}
+
+#tarotForm {
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+#interpretation {
+    padding: 10px;
+    font-style: italic;
+
+}
+
+#cardContainer {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+#cocktailContainer {
+    margin-top: 40px;
+
+}
+
+button {
+    background-color: #b91ee4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 2;
+}
