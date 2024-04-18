@@ -1,4 +1,4 @@
-const tarotCocktailMap = {
+const tarotCocktailMap1 = {
     "The Fool": "Vodka Martini",
     "The Magician": "Long Island Iced Tea",
     "The High Priestess": "Cosmopolitan",
