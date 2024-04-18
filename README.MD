@@ -12,6 +12,9 @@ The cocktail data is fetched from the cocktail database API 'thecocktaildb', and
 
 Screenshots:
 
+<img width="1920" alt="Screenshot 2024-04-18 at 3 22 03 pm" src="https://github.com/acidstag/mystic-mixologist/assets/159605098/5222e5a7-bd30-4bff-b636-684b6d5f0915">
+<img width="1920" alt="Screenshot 2024-04-18 at 3 22 06 pm" src="https://github.com/acidstag/mystic-mixologist/assets/159605098/5326b47c-c237-4001-8b1b-eb265bfb736b">
+<img width="1920" alt="Screenshot 2024-04-18 at 3 22 15 pm" src="https://github.com/acidstag/mystic-mixologist/assets/159605098/906cf979-0549-445e-b9fa-a7a64d6235e3">
 External API's used:
 
 Tarot API: https://tarotapi.dev/
