@@ -1,4 +1,6 @@
 const form = document.querySelector('#tarotForm')
+const showCocktailButton = document.createElement('button')
+showCocktailButton.textContent = '...reveil your libation destiny!'
 
 async function fetchTarotCards() {
     try {
@@ -7,34 +9,38 @@ async function fetchTarotCards() {
             throw new Error('failed to fetch tarot cards')
         }
         const data = await res.json()
-        console.log(data)
         const randomCardIndex = Math.floor(Math.random() * data.cards.length)
-        console.log(data.cards[randomCardIndex])
-        console.log(data.cards[randomCardIndex].meaning_up)
         return data.cards[randomCardIndex]
     } catch (error) {
         console.log(error)
     }
 }
 
-async function fetchCocktail() {
+async function fetchCocktail(card) {
     try {
-        const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+        const cocktailName = tarotCocktailMap[card]
+        const res = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${cocktailName}`)
         if (!res.ok) {
             throw new Error('failed to fetch cocktail data')
         }
         const data = await res.json()
-        console.log(data.drinks)
         return data.drinks
     } catch (error) {
         console.log(error)
     }
 }
+
+fetchCocktail()
+
     function cocktailDisplay(cocktailData) {
+        console.log(cocktailData)
         const cocktailContainer = document.querySelector('#cocktailContainer')
         cocktailContainer.innerHTML = ''
 
-        cocktailData.forEach(cocktail => {
+        
+        if (cocktailData && cocktailData.length > 0) {
+            const cocktail = cocktailData[0]
+
             const cocktailDiv = document.createElement('div')
             cocktailDiv.classList.add('cocktail')
 
@@ -48,7 +54,7 @@ async function fetchCocktail() {
             name.classList.add('name')
             cocktailDiv.append(name)
             
-            const glass = document.createElement('p')
+            const glass = document.createElement('h4')
             glass.textContent = 'Glass: ' + cocktail.strGlass
             glass.classList.add('glass')
             cocktailDiv.append(glass)
@@ -82,9 +88,12 @@ async function fetchCocktail() {
         cocktailDiv.append(ingredientsList)
 
         cocktailContainer.append(cocktailDiv)
-    })
+    }
 
 }
+
+
+
 
 function addImage(card) {
     const imageName = card.name_short
@@ -102,7 +111,7 @@ form.addEventListener('submit', async function(e) {
     e.preventDefault()
     
     const drawCard = await fetchTarotCards()
-
+    
     const cardDiv = document.createElement('div')
     cardDiv.classList.add('card')
 
@@ -117,15 +126,17 @@ form.addEventListener('submit', async function(e) {
 
     document.querySelector('#interpretation').textContent = tarotCardInterpretation(drawCard)
 
-    const showCocktailButton = document.createElement('button')
-    showCocktailButton.textContent = '...reveil your libation destiny!'
-    showCocktailButton.addEventListener('click', async function() {
-        const cocktails = await fetchCocktail()
+    if (!document.body.contains(showCocktailButton)) {
+        showCocktailButton.addEventListener('click', async function() {
+        const cocktailSearch = drawCard.name
+        console.log(cocktailSearch)
+        const cocktails = await fetchCocktail(cocktailSearch)
+        console.log(cocktails)
         cocktailDisplay(cocktails)
         showCocktailButton.remove()
-    })
-
-    document.body.insertBefore(showCocktailButton, document.querySelector('#cocktailContainer'))
+        })
+        document.body.insertBefore(showCocktailButton, document.querySelector('#cocktailContainer'))
+    }
 })
 
 

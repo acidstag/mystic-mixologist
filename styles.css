@@ -1,4 +1,4 @@
-body, h1, form, button {
+body, h1, h3, form, button {
     margin: 0;
     padding: 0;
 }
@@ -15,12 +15,16 @@ body {
 h1 {
     margin-bottom: 20px;
     font-size: 24px;
-    z-index: 2
+}
+
+#tagline {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-style: italic;
 }
 
 #tarotForm {
     margin-bottom: 20px;
-    z-index: 2;
 }
 
 #interpretation {
@@ -37,9 +41,32 @@ h1 {
     align-items: center;
 }
 
+.card { 
+    width: 300px;
+    height: 500px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
 #cocktailContainer {
     margin-top: 40px;
 
+}
+
+.cocktail-img {
+    margin-bottom: 20px;
+    /* background-color: #ff2626;
+    border: 2px solid #e4841e;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto; */
 }
 
 button {
@@ -51,5 +78,5 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
-    z-index: 2;
 }
+
