@@ -25,13 +25,13 @@ Cocktail Database API: https://www.thecocktaildb.com/api/json/v1/1/random.php
 
 The Tarot API is used to provide the user with a random tarot card from the deck upon form submit. The image is then appended from Tarot Images data, using the name.short dataset from the drawn card, and then the description of the tarot card is displayed.
 
-From there, the form submit creates a new button, offering the user a chance to reveal their cocktail recommendation. Once the suer clicks on the button, a search is run using the Cocktail Database API, based on the provided card/cocktai mappings.
+From there, the form submit creates a new button, offering the user a chance to reveal their cocktail recommendation. Once the user clicks on the button, a search is run using the Cocktail Database API, based on the provided card/cocktail mappings.
 
 This then displays the paired cocktail plus the recipe so the user can creat themselves.
 
 Unsolved Problems:
 
-Initially, I had planned to create a Tarot Based muisc/event recommendation app, but ran into issues with the available free API's provided. Lack of data / needing to pay for the data I needed. This meant I wasted a lot of time trying to make that work. Instead, I pivoted to this cocktail recomendation app. I spent a fair bit of time trying to debug issues with the cocktail mapping, and figuring out some CSS. I also ran into some issues with scope, and spent a bit of time debugging that as well. Overall, I'm okay with the finished product, but still could be alot more to do, as it is very basic. Overall, spent too much time with original idea and didn't have enough time to flesh this out.
+Initially, I had planned to create a Tarot Based music/event recommendation app, but ran into issues with the available free API's provided. Lack of data / needing to pay for the data I needed. This meant I wasted a lot of time trying to make that work. Instead, I pivoted to this cocktail recommendation app. I spent a fair bit of time trying to debug issues with the cocktail mapping, and figuring out some CSS. I also ran into some issues with scope, and spent a bit of time debugging that as well. Overall, I'm okay with the finished product, but still could be a lot more to do, as it is very basic. Overall, spent too much time with original idea and didn't have enough time to flesh this out.
 
 Future Features:
 
@@ -40,3 +40,4 @@ Future Features:
 - Improving CSS and design layout
 - Adding card flip animation
 - Adding geolocation data to recommend bars in local area
+- Implementing further Tarot cards, an utlising AI to provide tarot card reading based on the cards(s) drawn
