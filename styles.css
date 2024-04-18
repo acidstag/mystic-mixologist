@@ -36,7 +36,7 @@ h1 {
 #cardContainer {
     position: relative;
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     justify-content: center;
     align-items: center;
 }
@@ -56,17 +56,13 @@ h1 {
 }
 
 #cocktailContainer {
-    margin-top: 40px;
+    margin: 0 auto;
+    padding: 20px 100px;
 
 }
 
 .cocktail-img {
     margin-bottom: 20px;
-    /* background-color: #ff2626;
-    border: 2px solid #e4841e;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px auto; */
 }
 
 button {
@@ -77,6 +73,5 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 

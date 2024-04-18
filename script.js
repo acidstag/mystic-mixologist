@@ -30,70 +30,63 @@ async function fetchCocktail(card) {
     }
 }
 
-fetchCocktail()
+function cocktailDisplay(cocktailData) {
+    const cocktailContainer = document.querySelector('#cocktailContainer')
+    cocktailContainer.innerHTML = ''
+   
+    if (cocktailData && cocktailData.length > 0) {
+        const cocktail = cocktailData[0]
 
-    function cocktailDisplay(cocktailData) {
-        console.log(cocktailData)
-        const cocktailContainer = document.querySelector('#cocktailContainer')
-        cocktailContainer.innerHTML = ''
+        const cocktailDiv = document.createElement('div')
+        cocktailDiv.classList.add('cocktail')
 
-        
-        if (cocktailData && cocktailData.length > 0) {
-            const cocktail = cocktailData[0]
+        const cocktailImg = document.createElement('img')
+        cocktailImg.src = cocktail.strDrinkThumb
+        cocktailImg.classList.add('cocktail-img')
+        cocktailDiv.append(cocktailImg)
 
-            const cocktailDiv = document.createElement('div')
-            cocktailDiv.classList.add('cocktail')
-
-            const cocktailImg = document.createElement('img')
-            cocktailImg.src = cocktail.strDrinkThumb
-            cocktailImg.classList.add('cocktail-img')
-            cocktailDiv.append(cocktailImg)
-
-            const name = document.createElement('h3')
-            name.textContent = 'Name: ' + cocktail.strDrink
-            name.classList.add('name')
-            cocktailDiv.append(name)
+        const name = document.createElement('h3')
+        name.textContent = 'Name: ' + cocktail.strDrink
+        name.classList.add('name')
+        cocktailDiv.append(name)
             
-            const glass = document.createElement('h4')
-            glass.textContent = 'Glass: ' + cocktail.strGlass
-            glass.classList.add('glass')
-            cocktailDiv.append(glass)
+        const glass = document.createElement('h4')
+        glass.textContent = 'Glass: ' + cocktail.strGlass
+        glass.classList.add('glass')
+        cocktailDiv.append(glass)
 
-            const instructions = document.createElement('p')
-            instructions.textContent = 'Instructions: ' + cocktail.strInstructions
-            instructions.classList.add('instructions')
-            cocktailDiv.append(instructions)
+        const instructions = document.createElement('p')
+        instructions.textContent = 'Instructions: ' + cocktail.strInstructions
+        instructions.classList.add('instructions')
+        cocktailDiv.append(instructions)
 
-            const ingredientsHeader = document.createElement("p")
-            ingredientsHeader.textContent = "Ingredients: "
-            ingredientsHeader.classList.add('ingredients-header')
-            cocktailDiv.append(ingredientsHeader)
+        const ingredientsHeader = document.createElement('p')
+        ingredientsHeader.textContent = 'Ingredients: '
+        ingredientsHeader.classList.add('ingredients-header')
+        cocktailDiv.append(ingredientsHeader)
 
-            const ingredientsList = document.createElement('ul')
-            for (let i = 1; i <= 15; i++) {
-            const ingredient = cocktail[`strIngredient${i}`]
-            const measure = cocktail[`strMeasure${i}`]
-            if (ingredient && measure) {
-                const listItem = document.createElement('li')
-                listItem.textContent = `${measure.trim()}: ${ingredient}`
-                ingredientsList.classList.add('ingredients-list')
-                ingredientsList.append(listItem)
-            } else if (ingredient) {
-                const listItem = document.createElement('li')
-                ingredientsList.classList.add('ingredients-list')
-                listItem.textContent = ingredient
-                ingredientsList.append(listItem)
+        const ingredientsList = document.createElement('p')
+        for (let i = 1; i <= 15; i++) {
+        const ingredient = cocktail[`strIngredient${i}`]
+        const measure = cocktail[`strMeasure${i}`]
+        if (ingredient && measure) {
+            const listItem = document.createElement('p')
+            listItem.textContent = `${measure.trim()}: ${ingredient}`
+            ingredientsList.classList.add('ingredients-list')
+            ingredientsList.append(listItem)
+        } else if (ingredient) {
+            const listItem = document.createElement('p')
+            ingredientsList.classList.add('ingredients-list')
+            listItem.textContent = ingredient
+            ingredientsList.append(listItem)
+                }
             }
-        }
         cocktailDiv.append(ingredientsList)
 
         cocktailContainer.append(cocktailDiv)
     }
 
 }
-
-
-
 
 function addImage(card) {
     const imageName = card.name_short
@@ -102,7 +95,6 @@ function addImage(card) {
 
 function tarotCardInterpretation(card) {
     const { name, meaning_up } = card
-    console.log(card)
     const showData = `${name}: ${meaning_up}`
     return showData
 }
@@ -129,9 +121,7 @@ form.addEventListener('submit', async function(e) {
     if (!document.body.contains(showCocktailButton)) {
         showCocktailButton.addEventListener('click', async function() {
         const cocktailSearch = drawCard.name
-        console.log(cocktailSearch)
         const cocktails = await fetchCocktail(cocktailSearch)
-        console.log(cocktails)
         cocktailDisplay(cocktails)
         showCocktailButton.remove()
         })
